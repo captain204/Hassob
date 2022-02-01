@@ -1,0 +1,4 @@
+DELETE  http://localhost/api/assighment/2 HTTP/1.1
+content-type: application/json
+Authorization: Bearer 3|pHzEV6xbKWgVo3Q5WjUVKQajjd5SYCCXtcn5usqe
+

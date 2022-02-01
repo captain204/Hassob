@@ -1,0 +1,15 @@
+GET http://localhost/api/assighment/1 HTTP/1.1
+content-type: application/json
+Authorization: Bearer 3|pHzEV6xbKWgVo3Q5WjUVKQajjd5SYCCXtcn5usqe
+
+
+{
+      "asset_id": 21,
+      "assighment_date": "2006-06-11",
+      "status": "Merritt Turcotte",
+      "is_due": "2000-09-16",
+      "due_date": "2013-11-23",
+      "user_id": 1,
+      "assigned_by": "Percival Stanton",
+
+}

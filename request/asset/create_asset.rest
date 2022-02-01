@@ -1,0 +1,17 @@
+POST http://localhost/api/asset HTTP/1.1
+content-type: application/json
+Authorization: Bearer 3|pHzEV6xbKWgVo3Q5WjUVKQajjd5SYCCXtcn5usqe
+
+{
+    "serial_number": "SN-63640102306",
+    "description": "Assumenda  rerum vero ut minus non. Et consequatur aut id similique. Ad error nisi quasi mollitia aperiam.",
+    "fixed_movable": "Fixed",
+    "picture_path": "https:\/\/via.placeholder.com\/640x480.png\/00cc11?text=animals+nihil",
+    "purchase_date": "1999-04-08",
+    "start_use_date": "2011-10-10",
+    "purchase_price": 8377473,
+    "warranty_expiry_date": "2022-08-02",
+    "degredation_in_years": 8,
+    "current_value": 1,
+    "location": "CY"
+}
