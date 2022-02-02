@@ -26,9 +26,14 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/user', function (Request $request) {
         return auth()->user();
     });
-    Route::resources([
+    $resources =[
         'asset'=>AssetController::class,
         'vendor'=>VendorController::class,
         'assighment'=>AssetAssighmentController::class,
-    ]);
+    ];
+    foreach ($resources as $key => $value) {
+        Route::resource($key, $value)->except([
+            'create', 'edit',
+        ]);
+    }
 });

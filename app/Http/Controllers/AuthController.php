@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use App\Traits\ApiResponser;
+use Carbon\Carbon;
+use Illuminate\Support\Str;
 
 class AuthController extends Controller
 {
@@ -32,10 +34,8 @@ class AuthController extends Controller
             'email' => $attr['email'],
             'password' => bcrypt($attr['password']),
         ]);
-
-        return $this->success([
-            'token' => $user->createToken('API Token')->plainTextToken
-        ]);
+        $token = $user->createToken('API Token')->plainTextToken;
+        return $this->authResponse($token);
     }
 
     public function login(Request $request)
@@ -48,10 +48,9 @@ class AuthController extends Controller
         if (!Auth::attempt($attr)) {
             return $this->error('Credentials not match', 401);
         }
-
-        return $this->success([
-            'token' => auth()->user()->createToken('API Token')->plainTextToken
-        ]);
+        $user = User::where('email', $request->email)->first();
+        $token = $user->createToken('API Token')->plainTextToken;
+        return $this->authResponse($token);
     }
 
     public function logout()
@@ -61,5 +60,15 @@ class AuthController extends Controller
         return [
             'message' => 'Tokens Revoked'
         ];
+    }
+
+    private function authResponse($token)
+    {
+        return response()->json(
+            [
+                'token' => $token,
+            ],
+            201
+        );
     }
 }

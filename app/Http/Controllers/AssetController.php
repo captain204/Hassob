@@ -36,9 +36,7 @@ class AssetController extends Controller
             $request->validated();
             $asset = new Asset($request->all());
             $asset->save();
-            return $this->success([
-                'asset'=>$asset,
-            ]);
+            return response()->json($asset, 201);
 
         } catch (\Exception $e) {
             return $this->error([
@@ -90,9 +88,7 @@ class AssetController extends Controller
             if(null !== $asset){
                 $asset->fill($request->validated());
                 $asset->save();
-                return $this->success([
-                    'asset'=>$asset
-                ]);
+                return response()->json($asset, 200);
             }else{
                 return $this->error([
                     'message'=>'Cannot find asset',
@@ -120,9 +116,7 @@ class AssetController extends Controller
             $asset = Asset::find($id);
             if(null !==$asset){
                 $asset->delete();
-                return $this->success([
-                    'code'=>204
-                ]);
+                return response()->json(['message' => 'Asset removed'], 204);
             }else{
                 return $this->error([
                     'message'=>'Cannot find asset',

@@ -3,7 +3,7 @@ content-type: application/json
 Authorization: Bearer 3|pHzEV6xbKWgVo3Q5WjUVKQajjd5SYCCXtcn5usqe
 
 {
-    "serial_number": "SN-63640102306",
+    "serial_number": "SN-64640102306",
     "description": "Assumenda  rerum vero ut minus non. Et consequatur aut id similique. Ad error nisi quasi mollitia aperiam.",
     "fixed_movable": "Fixed",
     "picture_path": "https:\/\/via.placeholder.com\/640x480.png\/00cc11?text=animals+nihil",

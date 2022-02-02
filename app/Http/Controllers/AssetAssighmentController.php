@@ -36,9 +36,7 @@ class AssetAssighmentController extends Controller
             $request->validated();
             $assetAssigment = new AssetAssighment($request->all());
             $assetAssigment->save();
-            return $this->success([
-                    'assighment'=>$assetAssigment,
-                ]);
+            return response()->json($assetAssigment, 201);
         } catch (\Exception $e) {
             return $this->error([
                 'message'=>$e->getMessage(),
@@ -88,9 +86,7 @@ class AssetAssighmentController extends Controller
             if (null !== $assetAssigment) {
                 $assetAssigment->fill($request->validated());
                 $assetAssigment->save();
-                return $this->success([
-                        'assighment'=>$assetAssigment
-                    ]);
+                return response()->json($assetAssigment, 200);
             } else {
                 return $this->error([
                         'message'=>'Cannot find asset assighment details',
@@ -117,9 +113,7 @@ class AssetAssighmentController extends Controller
             $assetAssigment = AssetAssighment::find($id);
             if (null !==$assetAssigment) {
                 $assetAssigment->delete();
-                return $this->success([
-                    'code'=>204
-                ]);
+                return response()->json(['message' => 'Asset Assighment removed'], 204);
             } else {
                 return $this->error([
                     'message'=>'Cannot find asset assighment details',

@@ -35,10 +35,7 @@ class VendorController extends Controller
             $request->validated();
             $vendor = new Vendor($request->all());
             $vendor->save();
-            return $this->success([
-                'vendor'=>$vendor,
-            ]);
-
+            return response()->json($vendor, 201);
         } catch (\Exception $e) {
             return $this->error([
                 'message'=>$e->getMessage(),
@@ -89,9 +86,7 @@ class VendorController extends Controller
             if(null !== $vendor){
                 $vendor->fill($request->validated());
                 $vendor->save();
-                return $this->success([
-                    'vendor'=>$vendor
-                ]);
+                return response()->json($vendor, 200);
             }else{
                 return $this->error([
                     'message'=>'Vendor does not exist',
@@ -119,9 +114,7 @@ class VendorController extends Controller
             $vendor = Vendor::find($id);
             if(null !==$vendor){
                 $vendor->delete();
-                return $this->success([
-                    'code'=>204
-                ]);
+                return response()->json(['message' => 'Vendor removed'], 204);
             }else{
                 return $this->error([
                     'message'=>'Vendor does not exist',

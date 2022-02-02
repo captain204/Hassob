@@ -2,12 +2,12 @@ POST http://localhost/api/auth/register HTTP/1.1
 content-type: application/json
 
 {
-    "name":"captain",
+    "name":"captain345",
     "firstname":"Enforcer",
     "middlename":"Chief",
     "lastname":"King",
     "picture_url":"www.myimage.com",
-    "email":"captain204@email.com",
+    "email":"captain2000@email.com",
     "password":"captain204",
     "password_confirmation":"captain204"
 }
